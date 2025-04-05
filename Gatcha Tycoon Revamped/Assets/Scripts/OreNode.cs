@@ -10,19 +10,30 @@ public class OreNode : MonoBehaviour
 
     private float progress = 0f;
     private bool mineable = true;
+    private float[] oreHeights;
 
     void Start()
     {
+        oreHeights = new float[3];
+        for (int i = 0; i < orePieces.Length; i++)
+        {
+            oreHeights[i] = orePieces[i].position.y;
+        }
         SpawnOre();
     }
 
     private void SpawnOre()
     {
         mineable = true;
-        foreach (Transform ore in orePieces)
+        //foreach (Transform ore in orePieces)
+        //{
+        //    ore.localPosition = new Vector3(Random.Range(-0.2f, 0.2f), oreHeights[orePieces[]], Random.Range(-0.2f, 0.2f));
+        //    ore.rotation = Random.rotation;
+        //}
+        for (int i = 0; i < orePieces.Length; i++)
         {
-            ore.localPosition = new Vector3(Random.Range(-0.2f, 0.2f), ore.position.y, Random.Range(-0.2f, 0.2f));
-            ore.rotation = Random.rotation;
+            orePieces[i].localPosition = new Vector3(Random.Range(-0.2f, 0.2f), oreHeights[i], Random.Range(-0.2f, 0.2f));
+            orePieces[i].rotation = Random.rotation;
         }
         foreach (Rigidbody i in oreRB)
         {
