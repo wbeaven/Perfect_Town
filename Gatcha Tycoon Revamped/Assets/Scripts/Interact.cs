@@ -13,17 +13,6 @@ public class Interact : MonoBehaviour
         //Physics.CheckSphere(transform.position, interactRange, 1);
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, interactRange, interactLayer);
         HashSet<GameObject> currentObjects = new HashSet<GameObject>();
-        
-        //foreach (Collider collider in hitColliders)
-        //{
-        //    if (Vector3.Distance(transform.position, collider.transform.position) < interactRange) {
-
-        //    }
-        //    Interactable inter = collider.gameObject.GetComponent<Interactable>();
-        //    if (inter != null) {
-        //        inter.inRange = true;
-        //    }
-        //}
 
         foreach (Collider col in hitColliders)
         {

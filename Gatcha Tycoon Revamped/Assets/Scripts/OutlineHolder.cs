@@ -8,14 +8,16 @@ public class OutlineHolder : MonoBehaviour
     {
         foreach (Outline outline in outlines)
         {
-            outline.OutlineWidth = 4;
+            outline.enabled = true;
+            //outline.OutlineWidth = 4;
         }
     }
     public void Deactivate()
     {
         foreach (Outline outline in outlines)
         {
-            outline.OutlineWidth = 0;
+            outline.enabled = false;
+            //outline.OutlineWidth = 0;
         }
     }
 }
